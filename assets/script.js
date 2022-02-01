@@ -24,21 +24,21 @@ const ssPlusBtn = document.querySelector('#add-sugar')
 
 //selecting elements for our gingerbread cookie quantity
 //function to update gingerbread cookie quantity
-function updateGB(displayQuality){
+function updateGB(displayQuantity){
     let gbQuantity = document.querySelector('#qty-gb')
-    gbQuantity.innerHTML = displayQuality
+    gbQuantity.innerHTML = displayQuantity
     //console.log(displayQuality)
 }
 //function to update chocolate chip cookie quantity
-function updateCC(displayQuality){
+function updateCC(displayQuantity){
     let ccQuantity = document.querySelector('#qty-cc')
-    ccQuantity.innerHTML = displayQuality
+    ccQuantity.innerHTML = displayQuantity
     //console.log(displayQuality)
 }
 //function to update sugar sprinke cookie quantity
-function updateSS(displayQuality){
+function updateSS(displayQuantity){
     let ssQuantity = document.querySelector('#qty-sugar')
-    ssQuantity.innerHTML = displayQuality
+    ssQuantity.innerHTML = displayQuantity
     //console.log(displayQuality)
 }
 //function to update total quantity of cookies
@@ -64,11 +64,18 @@ console.log('Gingerbread + button was clicked!')
 // Event listener for clicks on the "-" button for Gingerbread cookies
 gbSubtractBtn.addEventListener('click', function() {
     console.log('Gingerbread - button was clicked!')
-    gb--
-    total--
+    if(gb && total > 0){
+        gb--
+        total--
+    }
+    else{
+        window.alert("Can not be less than zero")
+    }
+    //gb--
+    //total--
     updateGB(`${gb}`)
     updateTotal(`${total}`)
-    console.log(gb)
+    //console.log(gb)
 })
 
 
@@ -83,15 +90,22 @@ ccPlusBtn.addEventListener('click', function(){
 
 // Event listener for clicks on the "-" button for Chocolate chip cookies
 ccSubtractBtn.addEventListener('click', function(){
-    console.log('Chocolate chip cookie - button was clicked!')
-    cc--
-    total--
+    //console.log('Chocolate chip cookie - button was clicked!')
+    if(cc && total > 0){
+        cc--
+        total--
+    }
+    else{
+        window.alert("Can not be less than zero")
+    }
+    //cc--
+    //total--
     updateCC(`${cc}`)
     updateTotal(`${total}`)
 })
 
 ssPlusBtn.addEventListener('click', function(){
-    console.log('Sugar Sprinkle cookie + button was clicked!')
+    //console.log('Sugar Sprinkle cookie + button was clicked!')
     sugar++
     total++
     updateSS(`${sugar}`)
@@ -99,9 +113,16 @@ ssPlusBtn.addEventListener('click', function(){
 })
 
 ssSubtractBtn.addEventListener('click', function(){
-    console.log('Sugar Sprinkle cookie - button was clicked!')
-    sugar--
-    total--
+    //console.log('Sugar Sprinkle cookie - button was clicked!')
+    if(sugar && total > 0){
+        sugar--
+        total--
+    }
+    else{
+        window.alert("Can not be less than zero")
+    }
+    //sugar--
+    //total--
     updateSS(`${sugar}`)
     updateTotal(`${total}`)
 
